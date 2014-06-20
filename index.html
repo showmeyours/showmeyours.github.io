@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <ul class="posts">
+    {% for post in site.posts %}
+      <h1>{{ post.title }}</h1>
+      <article class="post-content">
+      {{ post.content }}
+      <h2>MP3</h2>
+      <audio id="player2" src="{{post.link}}" type="audio/mp3" controls="controls">
+      </audio>
+      <script>
+      $('audio,video').mediaelementplayer();
+      </script>
+      </article>
+      <!-- li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li -->
+    {% endfor %}
+  </ul>
+
+  <ul class="posts">
+    <h1>Archives</h1>
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

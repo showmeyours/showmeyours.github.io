@@ -1,0 +1,11 @@
+# Site settings
+title: "You Show Me Yours, I'll Show You Mine"
+email: your-email@domain.com
+description: "A podcast where 2 people share things."
+baseurl: ""
+url: ""
+domain: "youshowmeyourspodcast.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty

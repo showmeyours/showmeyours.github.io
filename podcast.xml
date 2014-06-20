@@ -1,0 +1,79 @@
+---
+layout: nil
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+
+<channel>
+
+<title>{{ site.title }}</title>
+
+<link>{{ site.baseurl }}</link>
+
+<language>en</language>
+
+<copyright>&#xA9; 2013 Carmen Harbour &amp; Amelia St. Peter-Blair</copyright>
+
+<itunes:subtitle>Carmen Harbour and Amelia St. Peter-Blair discuss films and other stuff</itunes:subtitle>
+
+<itunes:author>Carmen Harbour and Amelia St. Peter-Blair</itunes:author>
+
+<itunes:keywords>comedy</itunes:keywords>
+
+<itunes:summary>A podcast on stories, films, and everything.</itunes:summary>
+
+<description>A podcast on stories, films, places, things, everything, shared from one person to the next.</description>
+
+<itunes:owner>
+
+<itunes:name>Amelia and Carmen</itunes:name>
+
+<itunes:email>hello@{{ site.domain }}</itunes:email>
+
+</itunes:owner>
+
+<itunes:image href="{{ site.baseurl }}assets/itunes.jpg" />
+
+<itunes:category text="Comedy" />
+
+<itunes:category text="Society &amp; Culture" />
+
+<itunes:category text="Technology" />
+
+<itunes:category text="TV &amp; Film" />
+
+<itunes:new-feed-url>{{ site.baseurl }}/podcast.xml</itunes:new-feed-url>
+
+ {% for post in site.posts limit:100 %}
+
+ <item>
+
+ <title>{{ post.title }}</title>
+
+ <itunes:author>Darren Scott &amp; Adam Wilcox</itunes:author>
+
+ <itunes:subtitle>From The Pub: {{ post.title }}</itunes:subtitle>
+
+ <itunes:summary>{{ post.content | xml_escape }}</itunes:summary>
+
+ <itunes:image href="{{ site.baseurl }}{{ post.image }}" />
+
+ <enclosure url="{{ site.baseurl }}{{ post.link }}" length="{{ post.length }}" type="audio/x-m4a" />
+
+ <guid>{{ site.baseurl }}{{ post.link }}</guid>
+
+ <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }} GMT</pubDate>
+
+ <itunes:duration>{{ post.duration }}</itunes:duration>
+
+ <itunes:keywords>comedy,talk,web,radio,movies</itunes:keywords>
+
+ </item>
+
+ {% endfor %}
+
+</channel>
+
+</rss>
